@@ -27,13 +27,13 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
   };
 
   return (
-    <div className="h-screen w-64 bg-white shadow-lg dark:bg-gray-900 text-gray-900 dark:text-slate-300">
+    <div className="h-screen w-64 bg-white shadow-lg dark:bg-gray-900 text-gray-400 dark:text-slate-300">
       {/* Sidebar content with custom scroll */}
       <SimpleBar style={{ maxHeight: "100vh" }}>
         <div className="p-6 flex justify-between items-center">
           <div className="flex items-center">
             <img src={Logo} alt="Logo" className="w-10 h-6" />
-            <h1 className="ml-3 text-gray-700 text-2xl font-bold">Vuexy</h1>
+            <h1 className="ml-3 text-violet-200 text-2xl font-bold">Vuexy</h1>
           </div>
 
           {/* Close button visible only on small screens */}
@@ -53,7 +53,7 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
           >
             <div className="flex items-center space-x-3">
               <Home className="h-5 w-5 text-gray-500" />
-              <span className="text-gray-700">Dashboards</span>
+              <span className="text-gray-500">Dashboards</span>
             </div>
             <span className="text-sm bg-red-500 text-white rounded-full px-2">
               5
