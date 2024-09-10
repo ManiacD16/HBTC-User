@@ -78,7 +78,7 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen }) => {
         {isSearchActive ? (
           <div
             ref={searchRef}
-            className="flex items-center rounded-lg px-4 py-2 w-full md:w-3/4 lg:w-1/2"
+            className="flex items-center rounded-lg px-4 py-2 w-full md:w-3/4 lg:w-full"
           >
             <Search className="h-5 w-5 text-gray-500 mr-3" />
             <input
@@ -109,7 +109,7 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen }) => {
               />
             </div>
 
-            <div className="flex items-center ml-7 space-x-8">
+            <div className="flex items-center md:ml-7 md:space-x-8">
               <Wallet />
               <Globe className="h-5 w-5 text-gray-500 cursor-pointer" />
               <div ref={dropdownRef} className="relative">
