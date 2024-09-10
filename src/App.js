@@ -4,11 +4,10 @@ import MainContent from "./Components/MainContent";
 
 function App() {
   return (
-    <div className="flex h-screen">
+    <div className="flex flex-col min-h-screen">
       {/* <Sidebar /> */}
-      <div className="flex-1 flex flex-col">
-        <MainContent />
-      </div>
+      <MainContent />
+      {/* <Header /> */}
     </div>
   );
 }

@@ -49,38 +49,46 @@ const EcommerceReferralPage = () => {
         {/* Main content area */}
         <main className="p-6 dark:bg-gray-800">
           {/* Stats cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6 ">
-            <div className="shadow-xl ">
-              {renderStatsCard(
-                "Total Earning",
-                "$24,983",
-                "DollarSign",
-                "text-blue-500"
-              )}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+            <div className="flex items-stretch">
+              <div className="w-full bg-white shadow-lg flex flex-col rounded-lg">
+                {renderStatsCard(
+                  "Total Earning",
+                  "$24,983",
+                  "DollarSign",
+                  "text-blue-500"
+                )}
+              </div>
             </div>
-            <div className="shadow-lg">
-              {renderStatsCard(
-                "Unpaid Earning",
-                "$8,647",
-                "AlertCircle",
-                "text-yellow-500"
-              )}
+            <div className="flex items-stretch">
+              <div className="w-full bg-white shadow-lg flex flex-col rounded-lg">
+                {renderStatsCard(
+                  "Unpaid Earning",
+                  "$8,647",
+                  "AlertCircle",
+                  "text-yellow-500"
+                )}
+              </div>
             </div>
-            <div className="shadow-lg">
-              {renderStatsCard(
-                "Signups",
-                "2,647",
-                "UserPlus",
-                "text-green-500"
-              )}
+            <div className="flex items-stretch">
+              <div className="w-full bg-white shadow-lg flex flex-col rounded-lg">
+                {renderStatsCard(
+                  "Signups",
+                  "2,647",
+                  "UserPlus",
+                  "text-green-500"
+                )}
+              </div>
             </div>
-            <div className="shadow-lg">
-              {renderStatsCard(
-                "Conversion Rate",
-                "4.5%",
-                "Infinity",
-                "text-red-500"
-              )}
+            <div className="flex items-stretch">
+              <div className="w-full bg-white shadow-lg flex flex-col rounded-lg">
+                {renderStatsCard(
+                  "Conversion Rate",
+                  "4.5%",
+                  "Infinity",
+                  "text-red-500"
+                )}
+              </div>
             </div>
           </div>
 
