@@ -98,12 +98,12 @@ const EcommerceReferralPage = () => {
             </button>
           </div>
 
-          <h2 className="text-xl font-bold mb-2 text-white mt-3">Farm</h2>
+          <h2 className="text-xl font-bold mb-2 text-white mt-3">Stake</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6 ">
             <div className="flex items-stretch">
               <div className="w-full bg-white dark:bg-gray-900 text-black shadow-lg flex flex-col rounded-lg">
                 {renderStatsCard(
-                  "Farm Now",
+                  "Stake Now",
                   <input
                     type="text"
                     value={amount}
@@ -119,7 +119,7 @@ const EcommerceReferralPage = () => {
                     className="-mt-6 bg-green-500 text-white rounded-lg py-1 px-3 hover:bg-green-600 mr-2 mb-2"
                     onClick={handleWithdraw}
                   >
-                    Farm
+                    Stake
                   </button>
                 </div>
               </div>
@@ -127,7 +127,7 @@ const EcommerceReferralPage = () => {
             <div className="flex items-stretch">
               <div className="w-full bg-white dark:bg-gray-900 shadow-lg flex flex-col rounded-lg">
                 {renderStatsCard(
-                  "Total Farm",
+                  "Total Stake",
                   "$100.00",
                   "DollarSign",
                   "text-blue-500"
