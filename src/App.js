@@ -1,14 +1,18 @@
-import Header from "./Components/header";
-import Sidebar from "./Components/sidebar";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import MainContent from "./Components/MainContent";
+import Team from "./Components/Team"; // Import your Team component
+import Activity from "./Components/Activity";
 
-function App() {
+const App = () => {
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* <Sidebar /> */}
-      <MainContent />
-      {/* <Header /> */}
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<MainContent />} />
+        <Route path="/team" element={<Team />} />
+        <Route path="/activity" element={<Activity />} />
+      </Routes>
+    </Router>
   );
-}
+};
+
 export default App;

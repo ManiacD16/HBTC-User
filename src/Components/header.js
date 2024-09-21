@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import Logo from "./Images/logo.png";
+import Logo from "./Images/Logo.svg";
 import Wallet from "./wallet";
 import {
   Search,
@@ -64,7 +64,7 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen }) => {
   useClickOutside(dropdownRef, () => setIsDropdownOpen(false));
 
   return (
-    <header className="flex justify-between p-2 mt-2 ml-6 mr-6 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-200 shadow-md rounded-lg">
+    <header className="flex justify-between p-2 mt-2 ml-6 mr-6 dark:bg-gray-900 text-gray-900 dark:text-gray-200 shadow-md rounded-lg">
       {/* Hamburger Menu (visible on small screens) */}
       <div className="flex items-center md:hidden">
         <Menu
@@ -109,9 +109,10 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen }) => {
               />
             </div>
 
-            <div className="flex items-center md:ml-7 md:space-x-8">
-              <Wallet />
+            <div className="flex items-center justify-end w-full md:space-x-8">
+              {/* <Wallet /> */}
               <Globe className="h-5 w-5 text-gray-500 cursor-pointer" />
+              {/* Uncomment and adjust the dropdown as needed */}
               <div ref={dropdownRef} className="relative">
                 <div onClick={toggleDropdown}>{renderThemeIcon()}</div>
                 {isDropdownOpen && (

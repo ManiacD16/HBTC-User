@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import SimpleBar from "simplebar-react";
-import Logo from "./Images/logo.png";
+import Logo from "./Images/Logo.svg";
 import "simplebar-react/dist/simplebar.min.css"; // Import SimpleBar styles
 import {
   Home,
@@ -14,12 +14,16 @@ import {
   Truck,
   DollarSign,
   X,
+  UsersIcon,
+  ChartBarIcon,
   ChevronDown,
   Circle,
 } from "lucide-react"; // Using Lucide icons
+import { useNavigate } from "react-router-dom";
 
 const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Dropdown state
+  const navigate = useNavigate();
 
   // Toggle dropdown state
   const toggleDropdown = () => {
@@ -27,13 +31,19 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
   };
 
   return (
-    <div className="h-screen w-64 bg-white shadow-lg dark:bg-gray-900 text-gray-400 dark:text-slate-300">
+    <div
+      className="min-h-screen w-64 shadow-lg text-gray-400 dark:text-slate-300"
+      style={{
+        background:
+          "radial-gradient(circle at center, rgba(20, 84, 84, 0.8) -20%, rgba(13, 52, 52, 0.9) 5%, rgba(3, 11, 11, 1) 80%)",
+      }}
+    >
       {/* Sidebar content with custom scroll */}
       <SimpleBar style={{ maxHeight: "100vh" }}>
         <div className="p-6 flex justify-between items-center">
           <div className="flex items-center">
-            <img src={Logo} alt="Logo" className="w-10 h-6" />
-            <h1 className="ml-3 text-violet-200 text-2xl font-bold">Vuexy</h1>
+            <img src={Logo} alt="Logo" className="w-12 h-auto" />
+            <h1 className="ml-3 text-yellow-500 text-2xl font-bold">HBTC</h1>
           </div>
 
           {/* Close button visible only on small screens */}
@@ -48,99 +58,36 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
         <nav className="mt-0 ml-4 mr-4">
           {/* Dashboards Menu with Dropdown */}
           <div
-            onClick={toggleDropdown}
-            className="flex items-center justify-between p-3 hover:bg-gray-100 rounded-lg cursor-pointer"
+            className="flex items-center justify-between p-3 hover:bg-gray-700 rounded-lg cursor-pointer"
+            onClick={() => navigate("/")}
           >
             <div className="flex items-center space-x-3">
-              <Home className="h-5 w-5 text-gray-500" />
-              <span className="text-gray-500">Dashboards</span>
+              <Home className="h-5 w-5 text-gray-500 dark:text-slate-300" />
+              <span className="text-gray-500 dark:text-slate-300">
+                Dashboards
+              </span>
             </div>
-            <span className="text-sm bg-red-500 text-white rounded-full px-2">
-              5
-            </span>
-            <ChevronDown
-              className={`h-5 w-5 text-gray-500 transition-transform duration-300 ease-in-out transform ${
-                isDropdownOpen ? "rotate-0" : "-rotate-90"
-              }`}
-            />
           </div>
-          {/* Dropdown content with transition */}
-          <div
-            className={`overflow-hidden transition-all duration-300 ease-in-out ${
-              isDropdownOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
-            }`}
-          >
-            <ul className="text-m mt-2 space-y-4 ml-4">
-              <li className="flex items-center space-x-2">
-                <Circle className="h-3 w-3 text-gray-500" />
-                <span className="text-gray-700">Analytics</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <Circle className="h-3 w-3 text-gray-500" />
-                <span className="text-gray-700">CRM</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <Circle className="h-3 w-3 text-gray-500" />
-                <span className="text-gray-700">eCommerce</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <Circle className="h-3 w-3 text-gray-500" />
-                <span className="text-gray-700">Logistics</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <Circle className="h-3 w-3 text-gray-500" />
-                <span className="text-gray-700">Academy</span>
-              </li>
-            </ul>
-          </div>
-
           {/* Other Main Menu Items */}
           <div className="mb-6">
             <ul className="mt-2 space-y-2">
-              <li className="flex items-center p-3 hover:bg-gray-100 rounded-lg cursor-pointer">
-                <Layout className="h-5 w-5 text-gray-500" />
-                <span className="ml-3 text-gray-700">Layouts</span>
+              <li
+                className="flex items-center p-3 hover:bg-gray-700 rounded-lg cursor-pointer"
+                onClick={() => navigate("/team")} // Redirect to the Team page
+              >
+                <UsersIcon className="h-5 w-5 text-gray-500 dark:text-slate-300" />
+                <span className="ml-3 text-gray-500 dark:text-slate-300">
+                  Team
+                </span>
               </li>
-              <li className="flex items-center p-3 hover:bg-gray-100 rounded-lg cursor-pointer">
-                <FileText className="h-5 w-5 text-gray-500" />
-                <span className="ml-3 text-gray-700">Front Pages</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Apps & Pages */}
-          <div>
-            <h2 className="ml-3 text-gray-500 uppercase tracking-wide text-sm">
-              Apps & Pages
-            </h2>
-            <ul className="mt-2 space-y-2">
-              <li className="flex items-center p-3 hover:bg-gray-100 rounded-lg cursor-pointer">
-                <Mail className="h-5 w-5 text-gray-500" />
-                <span className="ml-3 text-gray-700">Email</span>
-              </li>
-              <li className="flex items-center p-3 hover:bg-gray-100 rounded-lg cursor-pointer">
-                <MessageCircle className="h-5 w-5 text-gray-500" />
-                <span className="ml-3 text-gray-700">Chat</span>
-              </li>
-              <li className="flex items-center p-3 hover:bg-gray-100 rounded-lg cursor-pointer">
-                <Calendar className="h-5 w-5 text-gray-500" />
-                <span className="ml-3 text-gray-700">Calendar</span>
-              </li>
-              <li className="flex items-center p-3 hover:bg-gray-100 rounded-lg cursor-pointer">
-                <ShoppingCart className="h-5 w-5 text-gray-500" />
-                <span className="ml-3 text-gray-700">eCommerce</span>
-              </li>
-              <li className="flex items-center p-3 hover:bg-gray-100 rounded-lg cursor-pointer">
-                <BookOpen className="h-5 w-5 text-gray-500" />
-                <span className="ml-3 text-gray-700">Academy</span>
-              </li>
-              <li className="flex items-center p-3 hover:bg-gray-100 rounded-lg cursor-pointer">
-                <Truck className="h-5 w-5 text-gray-500" />
-                <span className="ml-3 text-gray-700">Logistics</span>
-              </li>
-              <li className="flex items-center p-3 hover:bg-gray-100 rounded-lg cursor-pointer">
-                <DollarSign className="h-5 w-5 text-gray-500" />
-                <span className="ml-3 text-gray-700">Invoice</span>
+              <li
+                className="flex items-center p-3 hover:bg-gray-700 rounded-lg cursor-pointer"
+                onClick={() => navigate("/activity")}
+              >
+                <ChartBarIcon className="h-5 w-5 text-gray-500 dark:text-slate-300" />
+                <span className="ml-3 text-gray-500 dark:text-slate-300">
+                  Activity
+                </span>
               </li>
             </ul>
           </div>
