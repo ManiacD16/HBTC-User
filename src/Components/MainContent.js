@@ -143,7 +143,7 @@ const EcommerceReferralPage = () => {
                 {renderPanel(
                   "TOTAL AIRDROP",
                   "$100.",
-                  "AVAILABLE WITHDRAW",
+                  "AVAILABLE WITHDRAWAL",
                   "$5"
                 )}
                 <div className="flex justify-end">
@@ -183,7 +183,7 @@ const EcommerceReferralPage = () => {
                 {renderPanel(
                   "REMAINING CAPPING AMOUNT",
                   "1000$",
-                  "AVAILABLE WITHDRAW",
+                  "AVAILABLE WITHDRAWAL",
                   "$30"
                 )}
 
@@ -206,7 +206,7 @@ const EcommerceReferralPage = () => {
                   "AVAILABLE WIDRAWAL",
                   "$1"
                 )}
-                <div className="flex justify-end mt-11">
+                <div className="flex justify-end ">
                   <button
                     className="bg-green-500 text-white py-1 px-4 border-black border-2 rounded-2xl w-1/3 hover:bg-green-600 mr-2 mb-2"
                     onClick={() => handleWithdraw()}
@@ -221,14 +221,14 @@ const EcommerceReferralPage = () => {
             <div className="flex items-stretch">
               <div className="w-full bg-white dark:bg-gray-800 shadow-lg flex flex-col rounded-lg">
                 {renderRewardPanel("5% WEEKLY GLOBAL BUSINESS", "$10000", "20")}
-                <div className="flex justify-end">
+                {/* <div className="flex justify-end">
                   <button
                     className="bg-green-500 text-white py-1 px-4 border-black border-2 rounded-2xl w-1/3 hover:bg-green-600 mr-2 mb-2"
                     onClick={() => handleWithdraw()}
                   >
                     Withdraw
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
             <div className="flex items-stretch">
@@ -238,14 +238,14 @@ const EcommerceReferralPage = () => {
                   "$10000",
                   "20"
                 )}
-                <div className="flex justify-end">
+                {/* <div className="flex justify-end">
                   <button
                     className="bg-green-500 text-white py-1 px-4 border-black border-2 rounded-2xl w-1/3 hover:bg-green-600 mr-2"
                     onClick={() => handleWithdraw()}
                   >
                     Withdraw
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -266,11 +266,11 @@ const renderPanel = (
     <div className="bg-white dark:bg-gray-800 dark:text-gray-300 rounded-lg p-4">
       <div className="flex justify-between mb-2">
         <div>
-          <p className="text-md sm:mr-2 font-bold">{leftLabel}</p>
+          <p className="text-sm sm:mr-2 font-bold">{leftLabel}</p>
           <p className="text-lg text-gray-500 font-semibold ">{leftValue}</p>
         </div>
         <div className="text-right">
-          <p className="text-md font-bold flex justify-start">{rightLabel}</p>
+          <p className="text-sm font-bold flex justify-start">{rightLabel}</p>
           <p className="text-lg text-gray-500 font-semibold flex justify-center">
             {rightValue}
           </p>

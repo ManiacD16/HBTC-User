@@ -67,7 +67,7 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen }) => {
   useClickOutside(dropdownRef, () => setIsDropdownOpen(false));
 
   return (
-    <header className="flex justify-between p-2 mt-2 ml-6 mr-6 dark:bg-gray-900 text-gray-900 dark:text-gray-200 shadow-md rounded-lg">
+    <header className="flex justify-between p-2 mt-2 ml-6 mr-6 dark:bg-gray-800 text-gray-900 dark:text-gray-200 shadow-md rounded-lg">
       {/* Hamburger Menu (visible on small screens) */}
       <div className="flex items-center md:hidden">
         <Menu
@@ -77,8 +77,8 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen }) => {
       </div>
 
       {/* Search bar and right-side icons */}
-      <div className="flex items-center flex-1">
-        {/* {isSearchActive ? (
+      {/* <div className="flex items-center flex-1"> */}
+      {/* {isSearchActive ? (
           <div
             ref={searchRef}
             className="flex items-center rounded-lg px-4 py-2 w-full md:w-3/4 lg:w-full"
@@ -94,9 +94,9 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen }) => {
               onClick={() => setIsSearchActive(false)}
             />
           </div>
-        ) : (
-          <div className="flex items-center flex-1"> */}
-            {/* <div
+        ) : ( */}
+      <div className="flex items-center flex-1">
+        {/* <div
               ref={searchRef}
               className="flex rounded-lg px-4 py-2 md:w-3/4 lg:w-1/2"
             >
@@ -112,88 +112,86 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen }) => {
               />
             </div> */}
 
-            <div className="flex items-center justify-end w-full md:space-x-8">
-              {/* <Wallet /> */}
-              <div
-                className="bg-gradient-to-r from-yellow-400 to-yellow-600
+        <div className="flex items-center justify-end w-full md:space-x-8">
+          {/* <Wallet /> */}
+          <div
+            className="bg-gradient-to-r from-yellow-400 to-yellow-600
               rounded-xl shadow-lg inline-flex items-center space-x-2
               hover:shadow-xl transition-shadow duration-300"
-              >
-                <img
-                  src={Logo}
-                  alt="HBTC Logo"
-                  className="ml-1 w-6 h-6 sm:w-4 sm:h-4 object-cover"
+          >
+            <img
+              src={Logo}
+              alt="HBTC Logo"
+              className="ml-1 w-6 h-6 sm:w-4 sm:h-4 object-cover"
+            />
+            <div className="flex flex-col ">
+              <div className="flex items-center space-x-1 ">
+                <span className="text-xs font-semibold text-yellow-100 uppercase tracking-wide">
+                  HBTC
+                </span>
+                <TrendingUp
+                  className="w-3 h-3 text-green-300"
+                  aria-hidden="true"
                 />
-                <div className="flex flex-col ">
-                  <div className="flex items-center space-x-1 ">
-                    <span className="text-xs font-semibold text-yellow-100 uppercase tracking-wide">
-                      HBTC
-                    </span>
-                    <TrendingUp
-                      className="w-3 h-3 text-green-300"
-                      aria-hidden="true"
-                    />
-                  </div>
-                  <div className="flex items-center text-xl font-bold text-white tracking-tight mr-2">
-                    <DollarSign className="w-4 h-4 mr-0.5" aria-hidden="true" />
-                    1.00
-                  </div>
-                </div>
               </div>
-              <Home className="h-5 w-5 text-gray-500 cursor-pointer" />
-              {/* Uncomment and adjust the dropdown as needed */}
-              <div ref={dropdownRef} className="relative">
-                <div onClick={toggleDropdown}>{renderThemeIcon()}</div>
-                {isDropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg z-10">
-                    <ul className="p-2 space-y-1">
-                      <li
-                        className={`flex items-center p-2 rounded-lg cursor-pointer ${
-                          theme === "light" ? "bg-indigo-100" : ""
-                        }`}
-                        onClick={() => applyTheme("light")}
-                      >
-                        <Sun className="h-5 w-5 text-gray-500 mr-2" />
-                        <span className="text-gray-700">Light</span>
-                      </li>
-                      <li
-                        className={`flex items-center p-2 rounded-lg cursor-pointer ${
-                          theme === "dark" ? "bg-indigo-100" : ""
-                        }`}
-                        onClick={() => applyTheme("dark")}
-                      >
-                        <Moon className="h-5 w-5 text-gray-500 mr-2" />
-                        <span className="text-gray-700">Dark</span>
-                      </li>
-                      <li
-                        className={`flex items-center p-2 rounded-lg cursor-pointer ${
-                          theme === "system" ? "bg-indigo-100" : ""
-                        }`}
-                        onClick={() => applyTheme("system")}
-                      >
-                        <Monitor className="h-5 w-5 text-gray-500 mr-2" />
-                        <span className="text-gray-700">System</span>
-                      </li>
-                    </ul>
-                  </div>
-                )}
+              <div className="flex items-center text-xl font-bold text-white tracking-tight mr-2">
+                <DollarSign className="w-4 h-4 mr-0.5" aria-hidden="true" />
+                1.00
               </div>
-              {/* <Grid className="h-5 w-5 text-gray-500 cursor-pointer" />
+            </div>
+          </div>
+          <Home className="h-5 w-5 text-gray-500 cursor-pointer" />
+          {/* Uncomment and adjust the dropdown as needed */}
+          <div ref={dropdownRef} className="relative">
+            <div onClick={toggleDropdown}>{renderThemeIcon()}</div>
+            {isDropdownOpen && (
+              <div className="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg z-10">
+                <ul className="p-2 space-y-1">
+                  <li
+                    className={`flex items-center p-2 rounded-lg cursor-pointer ${
+                      theme === "light" ? "bg-indigo-100" : ""
+                    }`}
+                    onClick={() => applyTheme("light")}
+                  >
+                    <Sun className="h-5 w-5 text-gray-500 mr-2" />
+                    <span className="text-gray-700">Light</span>
+                  </li>
+                  <li
+                    className={`flex items-center p-2 rounded-lg cursor-pointer ${
+                      theme === "dark" ? "bg-indigo-100" : ""
+                    }`}
+                    onClick={() => applyTheme("dark")}
+                  >
+                    <Moon className="h-5 w-5 text-gray-500 mr-2" />
+                    <span className="text-gray-700">Dark</span>
+                  </li>
+                  <li
+                    className={`flex items-center p-2 rounded-lg cursor-pointer ${
+                      theme === "system" ? "bg-indigo-100" : ""
+                    }`}
+                    onClick={() => applyTheme("system")}
+                  >
+                    <Monitor className="h-5 w-5 text-gray-500 mr-2" />
+                    <span className="text-gray-700">System</span>
+                  </li>
+                </ul>
+              </div>
+            )}
+          </div>
+          {/* <Grid className="h-5 w-5 text-gray-500 cursor-pointer" />
               <div className="relative">
                 <Bell className="h-5 w-5 text-gray-500 cursor-pointer" />
                 <span className="absolute top-0 right-0 h-2 w-2 bg-red-500 rounded-full"></span>
               </div> */}
-              <div className="relative w-9 h-9">
-                <img
-                  src={Logo}
-                  alt="Profile"
-                  className="w-full h-full rounded-full object-cover"
-                />
-                <span className="absolute -bottom-1 -right-1 bg-green-500 border-2 border-white rounded-full w-4 h-4"></span>
-              </div>
-            </div>
+          <div className="relative w-9 h-9">
+            <img
+              src={Logo}
+              alt="Profile"
+              className="w-full h-full rounded-full object-cover"
+            />
+            <span className="absolute -bottom-1 -right-1 bg-green-500 border-2 border-white rounded-full w-4 h-4"></span>
           </div>
-        )}
+        </div>
       </div>
     </header>
   );
