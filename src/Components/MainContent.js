@@ -240,7 +240,7 @@ const EcommerceReferralPage = () => {
                 )}
                 <div className="flex justify-end">
                   <button
-                    className="bg-green-500 text-white py-1 px-4 border-black border-2 rounded-2xl w-1/3 hover:bg-green-600 mr-2 mb-2"
+                    className="bg-green-500 text-white py-1 px-4 border-black border-2 rounded-2xl w-1/3 hover:bg-green-600 mr-2"
                     onClick={() => handleWithdraw()}
                   >
                     Withdraw
@@ -291,9 +291,9 @@ const renderRewardPanel = (title, value, achievers) => {
           <p className="text-lg font-semibold">{achievers}</p>
         </div>
       </div>
-      <p className="text-sm text-gray-600">
+      {/* <p className="text-sm text-gray-600">
         Weekly Reward- Every Friday closing & Distribution on Saturday
-      </p>
+      </p> */}
     </div>
   );
 };

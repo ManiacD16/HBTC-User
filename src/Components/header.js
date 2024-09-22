@@ -78,7 +78,7 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen }) => {
 
       {/* Search bar and right-side icons */}
       <div className="flex items-center flex-1">
-        {isSearchActive ? (
+        {/* {isSearchActive ? (
           <div
             ref={searchRef}
             className="flex items-center rounded-lg px-4 py-2 w-full md:w-3/4 lg:w-full"
@@ -95,7 +95,7 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen }) => {
             />
           </div>
         ) : (
-          <div className="flex items-center flex-1">
+          <div className="flex items-center flex-1"> */}
             {/* <div
               ref={searchRef}
               className="flex rounded-lg px-4 py-2 md:w-3/4 lg:w-1/2"
