@@ -11,6 +11,9 @@ import {
   Menu,
   Moon,
   Monitor,
+  Home,
+  TrendingUp,
+  DollarSign,
 } from "lucide-react"; // Import Menu icon
 import useClickOutside from "./useClickOutside"; // Import the custom hook
 
@@ -111,7 +114,33 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen }) => {
 
             <div className="flex items-center justify-end w-full md:space-x-8">
               {/* <Wallet /> */}
-              <Globe className="h-5 w-5 text-gray-500 cursor-pointer" />
+              <div
+                className="bg-gradient-to-r from-yellow-400 to-yellow-600
+              rounded-xl shadow-lg inline-flex items-center space-x-2
+              hover:shadow-xl transition-shadow duration-300"
+              >
+                <img
+                  src={Logo}
+                  alt="HBTC Logo"
+                  className="ml-1 w-6 h-6 sm:w-4 sm:h-4 object-cover"
+                />
+                <div className="flex flex-col ">
+                  <div className="flex items-center space-x-1 ">
+                    <span className="text-xs font-semibold text-yellow-100 uppercase tracking-wide">
+                      HBTC
+                    </span>
+                    <TrendingUp
+                      className="w-3 h-3 text-green-300"
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <div className="flex items-center text-xl font-bold text-white tracking-tight mr-2">
+                    <DollarSign className="w-4 h-4 mr-0.5" aria-hidden="true" />
+                    1.00
+                  </div>
+                </div>
+              </div>
+              <Home className="h-5 w-5 text-gray-500 cursor-pointer" />
               {/* Uncomment and adjust the dropdown as needed */}
               <div ref={dropdownRef} className="relative">
                 <div onClick={toggleDropdown}>{renderThemeIcon()}</div>
@@ -149,11 +178,11 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen }) => {
                   </div>
                 )}
               </div>
-              <Grid className="h-5 w-5 text-gray-500 cursor-pointer" />
+              {/* <Grid className="h-5 w-5 text-gray-500 cursor-pointer" />
               <div className="relative">
                 <Bell className="h-5 w-5 text-gray-500 cursor-pointer" />
                 <span className="absolute top-0 right-0 h-2 w-2 bg-red-500 rounded-full"></span>
-              </div>
+              </div> */}
               <div className="relative w-9 h-9">
                 <img
                   src={Logo}

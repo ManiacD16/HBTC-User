@@ -19,10 +19,24 @@ const EcommerceReferralPage = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [amount, setAmount] = useState("");
 
+  const [adContentType, setAdContentType] = useState("image"); // "image" or "video"
+  const adContent = {
+    image:
+      "https://assets.staticimg.com/cms/media/40Pluo0RAbtdRMJKmYM5w3uzD7AgVxCGme7TFCnZC.png", // Replace with your image URL
+    video: "https://example.com/ad-video.mp4", // Replace with your video URL
+  };
+
   const handleWithdraw = () => {
     // Logic for handling withdrawal goes here
     console.log("Withdraw button clicked");
     console.log("Submitting:", amount);
+  };
+
+  const handleStake = () => {
+    console.log("Stake button clicked");
+    console.log("Submitting stake for amount:", amount);
+    // Logic for handling staking can go here
+    // E.g., call API to process staking
   };
 
   const [inviteLink, setInviteLink] = useState(
@@ -80,6 +94,7 @@ const EcommerceReferralPage = () => {
           <h2 className="text-2xl font-semibold text-gray-200 mb-4">
             Invite Link
           </h2>
+          {/* Invite Link Section */}
           <div className="flex items-center bg-white dark:bg-gray-900 rounded-md border border-gray-300 overflow-hidden">
             <div className="p-2 bg-gray-100 border-r border-gray-300 dark:bg-gray-900">
               <UserIcon className="h-6 w-6 text-gray-500 " />
@@ -98,63 +113,83 @@ const EcommerceReferralPage = () => {
             </button>
           </div>
 
-          <h2 className="text-xl font-bold mb-2 text-white mt-3">Stake</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6 ">
+          {/* Advertisement Section */}
+          <div className="mt-6 bg-white text-white rounded-lg shadow-lg h-40 w-full flex flex-col items-center">
+            {adContentType === "image" ? (
+              <img
+                src={adContent.image}
+                alt="Advertising"
+                className="h-full w-full rounded-lg object-cover"
+              />
+            ) : (
+              <video
+                src={adContent.video}
+                className="mt-4 w-full h-auto rounded-lg"
+                controls
+                autoPlay
+                muted
+              />
+            )}
+            {/* <button className="mt-4 px-4 py-2 bg-yellow-400 text-gray-800 font-semibold rounded-lg shadow hover:bg-yellow-300 transition-colors duration-200">
+              Shop Now
+            </button> */}
+          </div>
+
+          {/* Card Grid Section */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-6 mt-6">
+            {/* Render Panel Cards */}
             <div className="flex items-stretch">
-              <div className="w-full bg-white dark:bg-gray-900 text-black shadow-lg flex flex-col rounded-lg">
-                {renderStatsCard(
-                  "Stake Now",
+              <div className="w-full bg-white dark:bg-gray-800 shadow-lg flex flex-col rounded-lg">
+                {renderPanel(
+                  "TOTAL AIRDROP",
+                  "$100.",
+                  "AVAILABLE WITHDRAW",
+                  "$5"
+                )}
+                <div className="flex justify-end">
+                  <button
+                    className="bg-green-500 text-white py-1 px-4 border-black border-2 rounded-2xl w-1/3 hover:bg-green-600 mr-2 mb-2"
+                    onClick={() => handleWithdraw()}
+                  >
+                    Withdraw
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex items-stretch">
+              <div className="w-full bg-white dark:bg-gray-800 flex flex-col rounded-lg">
+                {renderPanel("TOTAL STAKE", "$100.", "TOTAL INCOME", "$5")}
+                <div className="flex justify-between items-end md:mt-4 ml-2 mr-2 mb-2">
                   <input
-                    type="text"
+                    type="number"
+                    placeholder="Enter amount"
+                    className="border border-gray-300 dark:border-gray-700 rounded-lg px-2 py-2 w-1/2 focus:outline-none focus:ring-2 focus:ring-green-500"
                     value={amount}
                     onChange={(e) => setAmount(e.target.value)}
-                    placeholder="Amount"
-                    className=" rounded-md px-3 text-black dark:bg-gray-900 dark:text-gray-200 w-5/6"
-                  />,
-                  "DollarSign",
-                  "text-green-500"
-                )}
-                <div className="h-1/5 mt-4 flex justify-end">
+                  />
                   <button
-                    className="-mt-6 bg-green-500 text-white rounded-lg py-1 px-3 hover:bg-green-600 mr-2 mb-2"
-                    onClick={handleWithdraw}
+                    className="bg-green-500 text-white py-1 px-4 border-black border-2 rounded-2xl hover:bg-green-600 ml-2"
+                    onClick={handleStake}
                   >
                     Stake
                   </button>
                 </div>
               </div>
             </div>
+
             <div className="flex items-stretch">
-              <div className="w-full bg-white dark:bg-gray-900 shadow-lg flex flex-col rounded-lg">
-                {renderStatsCard(
-                  "Total Stake",
-                  "$100.00",
-                  "DollarSign",
-                  "text-blue-500"
+              <div className="w-full bg-white dark:bg-gray-800 shadow-lg flex flex-col rounded-lg">
+                {renderPanel(
+                  "REMAINING CAPPING AMOUNT",
+                  "1000$",
+                  "AVAILABLE WITHDRAW",
+                  "$30"
                 )}
-              </div>
-            </div>
-            <div className="flex items-stretch">
-              <div className="w-full bg-white dark:bg-gray-900 shadow-lg flex flex-col rounded-lg">
-                {renderStatsCard(
-                  "Remaining Caping Amount",
-                  "$00.00",
-                  "DollarSign",
-                  "text-blue-500"
-                )}
-              </div>
-            </div>
-            <div className="flex items-stretch">
-              <div className="w-full bg-white dark:bg-gray-900 shadow-lg flex flex-col rounded-lg">
-                {renderStatsCard(
-                  "Available for Withdrawal",
-                  "$200.00",
-                  "AlertCircle",
-                  "text-green-500"
-                )}
-                <div className=" h-1/5 mb-0 flex justify-end">
+
+                <div className="flex justify-end">
                   <button
-                    className="-mt-6 bg-green-500 text-white py-1 px-3 rounded-lg hover:bg-green-600 mr-2 mb-2"
+                    className="bg-green-500 text-white py-1 px-4 border-black border-2 rounded-2xl w-1/3 hover:bg-green-600 mr-2 mb-2 text-sm sm:text-base md:text-md"
                     onClick={() => handleWithdraw()}
                   >
                     Withdraw
@@ -162,51 +197,18 @@ const EcommerceReferralPage = () => {
                 </div>
               </div>
             </div>
-          </div>
-          <h2 className="text-xl font-bold mb-2 text-white">Ranks</h2>
-          {/* Stats cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6 ">
+
             <div className="flex items-stretch">
-              <div className="w-full bg-white dark:bg-gray-900 shadow-lg flex flex-col rounded-lg">
-                {renderStatsCard(
-                  "Active Ranks",
-                  "John",
-                  "Infinity",
-                  "text-red-500"
+              <div className="w-full bg-white dark:bg-gray-800 shadow-lg flex flex-col rounded-lg">
+                {renderPanel(
+                  "TOTAL AFFILIATE STAKE",
+                  "1000$/999",
+                  "AVAILABLE WIDRAWAL",
+                  "$1"
                 )}
-              </div>
-            </div>
-            <div className="flex items-stretch">
-              <div className="w-full bg-white dark:bg-gray-900 shadow-lg flex flex-col rounded-lg">
-                {renderStatsCard(
-                  "Total Affiliate Stake",
-                  "$0.00/0.000",
-                  "UserPlus",
-                  "text-yellow-500"
-                )}
-              </div>
-            </div>
-            <div className="flex items-stretch">
-              <div className="w-full bg-white dark:bg-gray-900 shadow-lg flex flex-col rounded-lg">
-                {renderStatsCard(
-                  "3x Remaining Amount",
-                  "$0.000",
-                  "Infinity",
-                  "text-red-500"
-                )}
-              </div>
-            </div>
-            <div className="flex items-stretch">
-              <div className="w-full bg-white dark:bg-gray-900 shadow-lg flex flex-col rounded-lg">
-                {renderStatsCard(
-                  "Available for Withdrawal",
-                  "$00.00",
-                  "AlertCircle",
-                  "text-green-500"
-                )}
-                <div className="flex justify-end">
+                <div className="flex justify-end mt-11">
                   <button
-                    className="-mt-6 bg-green-500 text-white py-1 px-3 rounded-lg hover:bg-green-600 mr-2 mb-2"
+                    className="bg-green-500 text-white py-1 px-4 border-black border-2 rounded-2xl w-1/3 hover:bg-green-600 mr-2 mb-2"
                     onClick={() => handleWithdraw()}
                   >
                     Withdraw
@@ -214,89 +216,34 @@ const EcommerceReferralPage = () => {
                 </div>
               </div>
             </div>
-          </div>
 
-          <h2 className="text-xl font-bold mb-2 text-white mt-6">Quick View</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6 ">
+            {/* Render Reward Panel Cards */}
             <div className="flex items-stretch">
-              <div className="w-full bg-white dark:bg-gray-900 shadow-lg flex flex-col rounded-lg">
-                {renderStatsCard(
-                  "Direct Referral",
-                  "0/0",
-                  "USerPlus",
-                  "text-blue-500"
-                )}
-              </div>
-            </div>
-            <div className="flex items-stretch">
-              <div className="w-full bg-white dark:bg-gray-900 shadow-lg flex flex-col rounded-lg">
-                {renderStatsCard(
-                  "Total Team",
-                  "0",
-                  "AlertCircle",
-                  "text-green-500"
-                )}
-              </div>
-            </div>
-
-            <div className="flex items-stretch">
-              <div className="w-full bg-white dark:bg-gray-900 shadow-lg flex flex-col rounded-lg">
-                {renderStatsCard(
-                  "Direct Business",
-                  "0",
-                  "UserPlus",
-                  "text-yellow-500"
-                )}
-              </div>
-            </div>
-            <div className="flex items-stretch">
-              <div className="w-full bg-white dark:bg-gray-900 shadow-lg flex flex-col rounded-lg">
-                {renderStatsCard(
-                  "Team Busines",
-                  "0",
-                  "Infinity",
-                  "text-red-500"
-                )}
-              </div>
-            </div>
-          </div>
-
-          <h2 className="text-xl font-bold mb-2 text-white mt-6">Bonuses</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mb-6 ">
-            <div className="flex items-stretch ">
-              <div className="w-full bg-white dark:bg-gray-900 shadow-lg flex flex-col rounded-lg">
-                {renderStatsCard(
-                  "Monthly Bounses",
-                  "$00",
-                  "DollarSign",
-                  "text-blue-500"
-                )}
+              <div className="w-full bg-white dark:bg-gray-800 shadow-lg flex flex-col rounded-lg">
+                {renderRewardPanel("5% WEEKLY GLOBAL BUSINESS", "$10000", "20")}
                 <div className="flex justify-end">
                   <button
-                    className="-mt-6 bg-green-500 text-white py-1 px-4 rounded-lg w-1/3 hover:bg-green-600 mr-2 mb-2"
+                    className="bg-green-500 text-white py-1 px-4 border-black border-2 rounded-2xl w-1/3 hover:bg-green-600 mr-2 mb-2"
                     onClick={() => handleWithdraw()}
                   >
-                    Claim
+                    Withdraw
                   </button>
                 </div>
               </div>
             </div>
             <div className="flex items-stretch">
-              <div className="w-full bg-white dark:bg-gray-900 shadow-lg flex flex-col rounded-lg">
-                {renderStatsCard(
-                  "Weekly Bonus",
-                  "$4",
-                  "DollarSign",
-                  "text-blue-500"
+              <div className="w-full bg-white dark:bg-gray-800 shadow-lg flex flex-col rounded-lg">
+                {renderRewardPanel(
+                  "5% MONTHLY GLOBAL BUSINESS",
+                  "$10000",
+                  "20"
                 )}
                 <div className="flex justify-end">
                   <button
-                    className="-mt-6 bg-green-500 text-white py-1 px-4 rounded-lg w-1/3 hover:bg-green-600 mr-2 mb-2"
+                    className="bg-green-500 text-white py-1 px-4 border-black border-2 rounded-2xl w-1/3 hover:bg-green-600 mr-2 mb-2"
                     onClick={() => handleWithdraw()}
                   >
-                    Claim
+                    Withdraw
                   </button>
                 </div>
               </div>
@@ -308,25 +255,44 @@ const EcommerceReferralPage = () => {
   );
 };
 
-const renderStatsCard = (title, value, icon, iconColor) => {
-  const Icon =
-    icon === "DollarSign"
-      ? DollarSign
-      : icon === "UserPlus"
-      ? UserPlus
-      : icon === "AlertCircle"
-      ? AlertCircle
-      : Infinity;
+const renderPanel = (
+  leftLabel,
+  leftValue,
+  rightLabel,
+  rightValue,
+  buttonLabel
+) => {
   return (
-    <div className="bg-white  rounded-lg shadow-sm p-6 dark:bg-gray-900 text-black dark:text-slate-300">
-      <div className="flex items-center justify-between mb-2">
-        <h3 className="text-sm font-medium text-gray-800 dark:text-slate-200">
-          {title}
-        </h3>
-        <Icon className={`${iconColor} h-6 w-6`} />
+    <div className="bg-white dark:bg-gray-800 dark:text-gray-300 rounded-lg p-4">
+      <div className="flex justify-between mb-2">
+        <div>
+          <p className="text-md sm:mr-2 font-bold">{leftLabel}</p>
+          <p className="text-lg text-gray-500 font-semibold ">{leftValue}</p>
+        </div>
+        <div className="text-right">
+          <p className="text-md font-bold flex justify-start">{rightLabel}</p>
+          <p className="text-lg text-gray-500 font-semibold flex justify-center">
+            {rightValue}
+          </p>
+        </div>
       </div>
-      <p className="text-2xl font-semibold text-gray-800 dark:text-slate-200">
-        {value}
+    </div>
+  );
+};
+
+const renderRewardPanel = (title, value, achievers) => {
+  return (
+    <div className="bg-white dark:bg-gray-800 rounded-lg  p-4">
+      <h3 className="text-md font-semibold mb-2">{title}</h3>
+      <div className="flex justify-between mb-2">
+        <p className="text-2xl font-bold">{value}</p>
+        <div className="text-right">
+          <p className="text-sm text-gray-500">ACHIEVERS</p>
+          <p className="text-lg font-semibold">{achievers}</p>
+        </div>
+      </div>
+      <p className="text-sm text-gray-600">
+        Weekly Reward- Every Friday closing & Distribution on Saturday
       </p>
     </div>
   );
