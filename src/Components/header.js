@@ -112,10 +112,9 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen }) => {
               />
             </div> */}
 
-        <div className="flex items-center justify-end w-full md:space-x-8 space-x-4">
+        <div className="flex items-center justify-end w-full md:space-x-8 space-x-4 mr-2">
           <div
-            className="bg-gradient-to-r from-yellow-400 to-yellow-600
-              rounded-xl shadow-lg inline-flex items-center space-x-2
+            className="rounded-xl shadow-lg inline-flex items-center space-x-2
               hover:shadow-xl transition-shadow duration-300"
           >
             {/* <img
@@ -125,7 +124,7 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen }) => {
             /> */}
             <div className="flex flex-col ">
               <div className="flex items-center space-x-1 ">
-                <span className=" ml-1 text-xs font-semibold text-yellow-100 uppercase tracking-wide">
+                <span className=" ml-1 text-xs font-semibold dark:text-yellow-100 text:black uppercase tracking-wide">
                   HBTC
                 </span>
                 <TrendingUp
@@ -133,7 +132,7 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen }) => {
                   aria-hidden="true"
                 />
               </div>
-              <div className="flex items-center text-xl font-bold text-white tracking-tight mr-2">
+              <div className="flex items-center text-xl font-bold text-black dark:text-gray-200 tracking-tight mr-2">
                 <DollarSign className="w-4 h-4 mr-0.5" aria-hidden="true" />
                 1.00
               </div>

@@ -142,9 +142,9 @@ const EcommerceReferralPage = () => {
             <div className="flex items-stretch">
               <div className="w-full bg-white dark:bg-gray-800 shadow-lg flex flex-col rounded-lg">
                 {renderPanel(
-                  "TOTAL AIRDROP",
+                  "Total Airdrop",
                   "$100.",
-                  "AVAILABLE WITHDRAWAL",
+                  "Available Withdrawal",
                   "$5"
                 )}
                 <div className="flex justify-end">
@@ -159,8 +159,8 @@ const EcommerceReferralPage = () => {
             </div>
 
             <div className="flex items-stretch">
-              <div className="w-full bg-white dark:bg-gray-800 flex flex-col rounded-lg">
-                {renderPanel("TOTAL STAKE", "$100.", "TOTAL INCOME", "$5")}
+              <div className="w-full bg-white dark:bg-gray-800 flex flex-col shadow-lg rounded-lg">
+                {renderPanel("Total Stake", "$100.", "Total Income", "$5")}
                 <div className="flex justify-between items-end md:mt-4 ml-2 mr-2 mb-2">
                   <input
                     type="number"
@@ -182,9 +182,9 @@ const EcommerceReferralPage = () => {
             <div className="flex items-stretch">
               <div className="w-full bg-white dark:bg-gray-800 shadow-lg flex flex-col rounded-lg">
                 {renderPanel(
-                  "REMAINING CAPPING AMOUNT",
+                  "Remaining Capping Amount",
                   "1000$",
-                  "AVAILABLE WITHDRAWAL",
+                  "Available Withdrawal",
                   "$30"
                 )}
 
@@ -202,14 +202,14 @@ const EcommerceReferralPage = () => {
             <div className="flex items-stretch">
               <div className="w-full bg-white dark:bg-gray-800 shadow-lg flex flex-col rounded-lg">
                 {renderPanel(
-                  "TOTAL AFFILIATE STAKE",
+                  "Total Affiliate Stake",
                   "1000$/999",
-                  "AVAILABLE WITHDRAWAL",
+                  "Available Withdrawal",
                   "$1"
                 )}
                 <div className="flex justify-end ">
                   <button
-                    className="bg-green-500 text-white py-1 px-4 border-black border-2 rounded-2xl w-1/3 hover:bg-green-600 mr-2 mb-2"
+                    className="bg-green-500 text-white py-1 px-4 border-black border-2 rounded-2xl w-1/3 hover:bg-green-600 mr-2 mb-2 text-sm sm:text-base md:text-md"
                     onClick={() => handleWithdraw()}
                   >
                     Withdraw
@@ -221,7 +221,7 @@ const EcommerceReferralPage = () => {
             {/* Render Reward Panel Cards */}
             <div className="flex items-stretch">
               <div className="w-full bg-white dark:bg-gray-800 shadow-lg flex flex-col rounded-lg">
-                {renderRewardPanel("5% WEEKLY GLOBAL BUSINESS", "$10000", "20")}
+                {renderRewardPanel("5% Weekly Global Business", "$10000", "20")}
                 {/* <div className="flex justify-end">
                   <button
                     className="bg-green-500 text-white py-1 px-4 border-black border-2 rounded-2xl w-1/3 hover:bg-green-600 mr-2 mb-2"
@@ -235,7 +235,7 @@ const EcommerceReferralPage = () => {
             <div className="flex items-stretch">
               <div className="w-full bg-white dark:bg-gray-800 shadow-lg flex flex-col rounded-lg">
                 {renderRewardPanel(
-                  "5% MONTHLY GLOBAL BUSINESS",
+                  "5% Monthly Global Business",
                   "$10000",
                   "20"
                 )}
@@ -267,11 +267,11 @@ const renderPanel = (
     <div className="bg-white dark:bg-gray-800 dark:text-gray-300 rounded-lg p-4">
       <div className="flex justify-between mb-2">
         <div>
-          <p className="text-xs sm:mr-2 font-bold">{leftLabel}</p>
+          <p className="text-xs font-bold">{leftLabel}</p>
           <p className="text-md text-gray-500 font-semibold ">{leftValue}</p>
         </div>
         <div className="text-right">
-          <p className="text-xs font-bold flex justify-start">{rightLabel}</p>
+          <p className="text-xs font-bold">{rightLabel}</p>
           <p className="text-md text-gray-500 font-semibold flex justify-center">
             {rightValue}
           </p>
