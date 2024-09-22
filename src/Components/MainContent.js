@@ -250,6 +250,43 @@ const EcommerceReferralPage = () => {
               </div>
             </div>
           </div>
+          <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-200 mb-4">
+            Quick View
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6 ">
+            <div className="shadow-xl ">
+              {renderStatsCard(
+                "Direct Referral",
+                "0/0",
+                "UserPlus",
+                "text-blue-500"
+              )}
+            </div>
+            <div className="shadow-lg">
+              {renderStatsCard(
+                "Total Team",
+                "0",
+                "UserPlus",
+                "text-yellow-500"
+              )}
+            </div>
+            <div className="shadow-lg">
+              {renderStatsCard(
+                "Direct Business",
+                "0",
+                "DollarSign",
+                "text-green-500"
+              )}
+            </div>
+            <div className="shadow-lg">
+              {renderStatsCard(
+                "Team Business",
+                "0",
+                "DollarSign",
+                "text-red-500"
+              )}
+            </div>
+          </div>
         </main>
       </div>
     </div>
@@ -295,6 +332,26 @@ const renderRewardPanel = (title, value, achievers) => {
       {/* <p className="text-sm text-gray-600">
         Weekly Reward- Every Friday closing & Distribution on Saturday
       </p> */}
+    </div>
+  );
+};
+
+const renderStatsCard = (title, value, icon, iconColor) => {
+  const Icon =
+    icon === "DollarSign"
+      ? DollarSign
+      : icon === "UserPlus"
+      ? UserPlus
+      : icon === "AlertCircle"
+      ? AlertCircle
+      : Infinity;
+  return (
+    <div className="bg-white rounded-lg shadow-sm p-6 dark:bg-gray-800 text-gray-900 dark:text-slate-300">
+      <div className="flex items-center justify-between mb-2">
+        <h3 className="text-sm font-medium text-gray-500">{title}</h3>
+        <Icon className={`${iconColor} h-6 w-6`} />
+      </div>
+      <p className="text-2xl font-semibold">{value}</p>
     </div>
   );
 };
