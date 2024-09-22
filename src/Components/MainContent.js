@@ -65,7 +65,7 @@ const EcommerceReferralPage = () => {
     >
       {/* Sidebar */}
       <div
-        className={`fixed top-0 left-0 h-full w-64 z-50 bg-gray-800 transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 h-full w-64 z-50 bg-white transition-transform duration-300 ease-in-out ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -267,11 +267,11 @@ const renderPanel = (
     <div className="bg-white dark:bg-gray-800 dark:text-gray-300 rounded-lg p-4">
       <div className="flex justify-between mb-2">
         <div>
-          <p className="text-xs font-bold">{leftLabel}</p>
+          <p className="text-[11px] font-bold">{leftLabel}</p>
           <p className="text-md text-gray-500 font-semibold ">{leftValue}</p>
         </div>
         <div className="text-right">
-          <p className="text-xs font-bold">{rightLabel}</p>
+          <p className="text-[11px] font-bold">{rightLabel}</p>
           <p className="text-md text-gray-500 font-semibold flex justify-center">
             {rightValue}
           </p>
@@ -284,12 +284,12 @@ const renderPanel = (
 const renderRewardPanel = (title, value, achievers) => {
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg  p-4">
-      <h3 className="text-sm mb-2 font-bold ">{title}</h3>
+      <h3 className="text-xs mb-2 font-bold ">{title}</h3>
       <div className="flex justify-between mb-2">
         <p className="text-2xl font-bold">{value}</p>
         <div className="text-right">
-          <p className="text-sm text-gray-500">ACHIEVERS</p>
-          <p className="text-lg font-semibold">{achievers}</p>
+          <p className="text-sm text-gray-500">Achievers</p>
+          <p className="text-md font-semibold">{achievers}</p>
         </div>
       </div>
       {/* <p className="text-sm text-gray-600">

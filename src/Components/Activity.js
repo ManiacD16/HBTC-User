@@ -92,7 +92,7 @@ export default function Activity() {
     <div className="flex h-screen relative dark:bg-gray-900 text-gray-900 dark:text-slate-300">
       {/* Sidebar */}
       <div
-        className={`fixed top-0 left-0 h-full w-64 z-50 bg-gray-800 transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 h-full w-64 z-50 bg-white dark:bg-gray-900 transition-transform duration-300 ease-in-out ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -110,13 +110,7 @@ export default function Activity() {
       </div>
 
       {/* Main content */}
-      <div
-        className="flex-1 overflow-auto dark:bg-gray-900"
-        style={{
-          background:
-            "radial-gradient(circle at center, rgba(20, 84, 84, 0.8) -20%, rgba(13, 52, 52, 0.9) 5%, rgba(3, 11, 11, 1) 80%)",
-        }}
-      >
+      <div className="flex-1 overflow-auto dark:bg-gray-900">
         <Header
           isSidebarOpen={isSidebarOpen}
           setIsSidebarOpen={setIsSidebarOpen}
