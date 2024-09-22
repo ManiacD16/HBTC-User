@@ -11,6 +11,7 @@ import {
   AlertCircle,
   UserIcon,
   Infinity,
+  UsersIcon,
 } from "lucide-react";
 import Sidebar from "./sidebar";
 import Header from "./header";
@@ -260,7 +261,7 @@ const EcommerceReferralPage = () => {
               {renderStatsCard(
                 "Total Team",
                 "0",
-                "UserPlus",
+                "UsersIcon",
                 "text-yellow-500"
               )}
             </div>
@@ -287,13 +288,7 @@ const EcommerceReferralPage = () => {
   );
 };
 
-const renderPanel = (
-  leftLabel,
-  leftValue,
-  rightLabel,
-  rightValue,
-  buttonLabel
-) => {
+const renderPanel = (leftLabel, leftValue, rightLabel, rightValue) => {
   return (
     <div className="bg-white dark:bg-gray-800 dark:text-gray-300 rounded-lg p-4">
       <div className="flex justify-between mb-2">
@@ -334,8 +329,8 @@ const renderStatsCard = (title, value, icon, iconColor) => {
   const Icon =
     icon === "DollarSign"
       ? DollarSign
-      : icon === "UserPlus"
-      ? UserPlus
+      : icon === "UsersIcon"
+      ? UsersIcon
       : icon === "AlertCircle"
       ? AlertCircle
       : Infinity;
