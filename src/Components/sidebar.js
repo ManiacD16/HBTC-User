@@ -12,7 +12,7 @@ import {
 } from "lucide-react"; // Using Lucide icons
 import { useNavigate } from "react-router-dom";
 const avatars = [
-  require("./Images/Logo.png"),
+  require("./Images/Logo1.png"),
   require(".//Images/Avatar.jpg"),
   require("./Images/Avatar1.jpg"),
   require("./Images/Avatar2.jpg"),
