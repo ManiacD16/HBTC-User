@@ -112,21 +112,20 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen }) => {
               />
             </div> */}
 
-        <div className="flex items-center justify-end w-full md:space-x-8">
-          {/* <Wallet /> */}
+        <div className="flex items-center justify-end w-full md:space-x-8 space-x-4">
           <div
             className="bg-gradient-to-r from-yellow-400 to-yellow-600
               rounded-xl shadow-lg inline-flex items-center space-x-2
               hover:shadow-xl transition-shadow duration-300"
           >
-            <img
+            {/* <img
               src={Logo}
               alt="HBTC Logo"
-              className="ml-1 w-6 h-6 sm:w-4 sm:h-4 object-cover"
-            />
+              className=" w-6 h-6 sm:w-4 sm:h-4 object-cover"
+            /> */}
             <div className="flex flex-col ">
               <div className="flex items-center space-x-1 ">
-                <span className="text-xs font-semibold text-yellow-100 uppercase tracking-wide">
+                <span className=" ml-1 text-xs font-semibold text-yellow-100 uppercase tracking-wide">
                   HBTC
                 </span>
                 <TrendingUp
@@ -183,14 +182,15 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen }) => {
                 <Bell className="h-5 w-5 text-gray-500 cursor-pointer" />
                 <span className="absolute top-0 right-0 h-2 w-2 bg-red-500 rounded-full"></span>
               </div> */}
-          <div className="relative w-9 h-9">
+          {/* <div className="relative w-9 h-9">
             <img
               src={Logo}
               alt="Profile"
               className="w-full h-full rounded-full object-cover"
             />
             <span className="absolute -bottom-1 -right-1 bg-green-500 border-2 border-white rounded-full w-4 h-4"></span>
-          </div>
+          </div> */}
+          <Wallet />
         </div>
       </div>
     </header>
