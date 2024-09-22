@@ -267,12 +267,12 @@ const renderPanel = (
     <div className="bg-white dark:bg-gray-800 dark:text-gray-300 rounded-lg p-4">
       <div className="flex justify-between mb-2">
         <div>
-          <p className="text-sm sm:mr-2 font-bold">{leftLabel}</p>
-          <p className="text-lg text-gray-500 font-semibold ">{leftValue}</p>
+          <p className="text-xs sm:mr-2 font-bold">{leftLabel}</p>
+          <p className="text-md text-gray-500 font-semibold ">{leftValue}</p>
         </div>
         <div className="text-right">
-          <p className="text-sm font-bold flex justify-start">{rightLabel}</p>
-          <p className="text-lg text-gray-500 font-semibold flex justify-center">
+          <p className="text-xs font-bold flex justify-start">{rightLabel}</p>
+          <p className="text-md text-gray-500 font-semibold flex justify-center">
             {rightValue}
           </p>
         </div>
@@ -284,7 +284,7 @@ const renderPanel = (
 const renderRewardPanel = (title, value, achievers) => {
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg  p-4">
-      <h3 className="text-md font-semibold mb-2">{title}</h3>
+      <h3 className="text-sm mb-2 font-bold ">{title}</h3>
       <div className="flex justify-between mb-2">
         <p className="text-2xl font-bold">{value}</p>
         <div className="text-right">
