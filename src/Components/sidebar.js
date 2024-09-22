@@ -33,10 +33,10 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
   return (
     <div
       className="min-h-screen w-64 shadow-lg text-gray-400 dark:text-slate-300"
-      style={{
-        background:
-          "radial-gradient(circle at center, rgba(20, 84, 84, 0.8) -20%, rgba(13, 52, 52, 0.9) 5%, rgba(3, 11, 11, 1) 80%)",
-      }}
+      // style={{
+      //   background:
+      //     "radial-gradient(circle at center, rgba(20, 84, 84, 0.8) -20%, rgba(13, 52, 52, 0.9) 5%, rgba(3, 11, 11, 1) 80%)",
+      // }}
     >
       {/* Sidebar content with custom scroll */}
       <SimpleBar style={{ maxHeight: "100vh" }}>

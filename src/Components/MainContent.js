@@ -57,10 +57,10 @@ const EcommerceReferralPage = () => {
   return (
     <div
       className="flex h-screen relative dark:bg-gray-900 text-gray-900 dark:text-slate-300"
-      style={{
-        background:
-          "radial-gradient(circle at center, rgba(20, 84, 84, 0.8) -20%, rgba(13, 52, 52, 0.9) 5%, rgba(3, 11, 11, 1) 80%)",
-      }}
+      // style={{
+      //   background:
+      //     "radial-gradient(circle at center, rgba(20, 84, 84, 0.8) -20%, rgba(13, 52, 52, 0.9) 5%, rgba(3, 11, 11, 1) 80%)",
+      // }}
     >
       {/* Sidebar */}
       <div
@@ -91,7 +91,7 @@ const EcommerceReferralPage = () => {
 
         {/* Main content area */}
         <main className="p-6">
-          <h2 className="text-2xl font-semibold text-gray-200 mb-4">
+          <h2 className="text-2xl font-semibold text-gray-900 mb-4">
             Invite Link
           </h2>
           {/* Invite Link Section */}
@@ -164,7 +164,7 @@ const EcommerceReferralPage = () => {
                   <input
                     type="number"
                     placeholder="Enter amount"
-                    className="border border-gray-300 dark:border-gray-700 rounded-lg px-2 py-2 w-1/2 focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="border border-gray-300 dark:text-gray-800 dark:border-gray-700 rounded-lg px-2 py-2 w-1/2 focus:outline-none focus:ring-2 focus:ring-green-500"
                     value={amount}
                     onChange={(e) => setAmount(e.target.value)}
                   />

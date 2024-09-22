@@ -96,7 +96,7 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen }) => {
           </div>
         ) : (
           <div className="flex items-center flex-1">
-            <div
+            {/* <div
               ref={searchRef}
               className="flex rounded-lg px-4 py-2 md:w-3/4 lg:w-1/2"
             >
@@ -110,7 +110,7 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen }) => {
                 className="bg-transparent focus:outline-none w-full"
                 onFocus={() => setIsSearchActive(true)}
               />
-            </div>
+            </div> */}
 
             <div className="flex items-center justify-end w-full md:space-x-8">
               {/* <Wallet /> */}
