@@ -190,7 +190,7 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen }) => {
             />
             <span className="absolute -bottom-1 -right-1 bg-green-500 border-2 border-white rounded-full w-4 h-4"></span>
           </div> */}
-          <Wallet />
+          {/* <Wallet /> */}
         </div>
       </div>
     </header>

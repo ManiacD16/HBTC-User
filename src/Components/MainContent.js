@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import Sidebar from "./sidebar";
 import Header from "./header";
+import Banner from "./Images/Banner.jpg";
 
 const EcommerceReferralPage = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -117,7 +118,7 @@ const EcommerceReferralPage = () => {
           <div className="mt-6 bg-white text-white rounded-lg shadow-lg h-40 w-full flex flex-col items-center">
             {adContentType === "image" ? (
               <img
-                src={adContent.image}
+                src={Banner} //{adContent.image}
                 alt="Advertising"
                 className="h-full w-full rounded-lg object-cover"
               />
@@ -203,7 +204,7 @@ const EcommerceReferralPage = () => {
                 {renderPanel(
                   "TOTAL AFFILIATE STAKE",
                   "1000$/999",
-                  "AVAILABLE WIDRAWAL",
+                  "AVAILABLE WITHDRAWAL",
                   "$1"
                 )}
                 <div className="flex justify-end ">
