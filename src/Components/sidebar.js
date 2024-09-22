@@ -11,11 +11,22 @@ import {
   X,
 } from "lucide-react"; // Using Lucide icons
 import { useNavigate } from "react-router-dom";
+const avatars = [
+  require("./Images/Logo.png"),
+  require(".//Images/Avatar.jpg"),
+  require("./Images/Avatar1.jpg"),
+  require("./Images/Avatar2.jpg"),
+  // require("./path/to/avatars/avatar4.png"),
+  // Add more avatar paths as needed
+];
 
 const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
   const [isTeamDropdownOpen, setTeamDropdownOpen] = useState(false);
   const [isActivityDropdownOpen, setActivityDropdownOpen] = useState(false);
   const navigate = useNavigate();
+  const [selectedAvatar, setSelectedAvatar] = useState(avatars[0]);
+  const [isOpen, setIsOpen] = useState(false);
+  // const [userImage, setUserImage] = useState(null);
 
   // Toggle dropdown state
   const toggleTeamDropdown = () => {
@@ -23,10 +34,33 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
     setActivityDropdownOpen(false); // Close the activity dropdown
   };
 
+  // const AvatarSelector = () => {
+
+  const handleAvatarClick = (avatar) => {
+    setSelectedAvatar(avatar);
+    setIsOpen(false); // Close the popup after selecting
+  };
+
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
+  };
+
   const toggleActivityDropdown = () => {
     setActivityDropdownOpen(!isActivityDropdownOpen);
     setTeamDropdownOpen(false); // Close the team dropdown
   };
+
+  // Handle image upload
+  // const handleImageUpload = (event) => {
+  //   const file = event.target.files[0];
+  //   if (file) {
+  //     const reader = new FileReader();
+  //     reader.onloadend = () => {
+  //       setUserImage(reader.result); // Set the uploaded image URL
+  //     };
+  //     reader.readAsDataURL(file);
+  //   }
+  // };
 
   return (
     <div className="min-h-screen w-64 shadow-lg text-gray-400 dark:text-slate-300 dark:bg-gray-800">
@@ -34,8 +68,43 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
       <SimpleBar style={{ maxHeight: "100vh" }}>
         <div className="p-6 flex justify-between items-center">
           <div className="flex items-center">
-            <img src={Logo} alt="Logo" className="w-12 h-auto" />
-            <h1 className="ml-3 text-yellow-500 text-2xl font-bold">HBTC</h1>
+            {/* <img src={Logo} alt="Logo" className="w-12 h-auto" /> */}
+            <div className="avatar-selector ">
+              <div onClick={togglePopup} className="cursor-pointer">
+                <img
+                  src={selectedAvatar}
+                  alt="Profile"
+                  className="w-12 h-12 rounded-full overflow-hidden border border-gray-300 object-cover" // Ensure the image fits the container
+                />
+              </div>
+
+              {isOpen && (
+                <div className="popup">
+                  <div className="popup-content">
+                    <div className="avatar-options grid grid-cols-4 gap-4">
+                      {avatars.map((avatar, index) => (
+                        <img
+                          key={index}
+                          src={avatar}
+                          alt={`Avatar ${index + 1}`}
+                          className={`w-12 h-12 object-cover cursor-pointer ${
+                            selectedAvatar === avatar
+                              ? "border-2 border-blue-500"
+                              : ""
+                          }`}
+                          onClick={() => handleAvatarClick(avatar)}
+                        />
+                      ))}
+                    </div>
+                    <button onClick={togglePopup} className="mt-4">
+                      Close
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <h1 className="ml-3 text-yellow-500 text-2xl font-bold">User</h1>
           </div>
           {/* Close button visible only on small screens */}
           <button

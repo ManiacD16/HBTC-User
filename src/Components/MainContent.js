@@ -56,13 +56,7 @@ const EcommerceReferralPage = () => {
   };
 
   return (
-    <div
-      className="flex h-screen relative dark:bg-gray-900 text-gray-900 dark:text-slate-300"
-      // style={{
-      //   background:
-      //     "radial-gradient(circle at center, rgba(20, 84, 84, 0.8) -20%, rgba(13, 52, 52, 0.9) 5%, rgba(3, 11, 11, 1) 80%)",
-      // }}
-    >
+    <div className="flex h-screen relative dark:bg-gray-900 text-gray-900 dark:text-slate-300">
       {/* Sidebar */}
       <div
         className={`fixed top-0 left-0 h-full w-64 z-50 bg-white transition-transform duration-300 ease-in-out ${
@@ -92,8 +86,8 @@ const EcommerceReferralPage = () => {
 
         {/* Main content area */}
         <main className="p-6">
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-200 mb-4">
-            Invite Link
+          <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-200 mb-4">
+            Referral Link
           </h2>
           {/* Invite Link Section */}
           <div className="flex items-center bg-white dark:bg-gray-900 rounded-md border border-gray-300 overflow-hidden">
@@ -137,7 +131,7 @@ const EcommerceReferralPage = () => {
           </div>
 
           {/* Card Grid Section */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-6 mt-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 mb-6 mt-6">
             {/* Render Panel Cards */}
             <div className="flex items-stretch">
               <div className="w-full bg-white dark:bg-gray-800 shadow-lg flex flex-col rounded-lg">
@@ -182,7 +176,7 @@ const EcommerceReferralPage = () => {
             <div className="flex items-stretch">
               <div className="w-full bg-white dark:bg-gray-800 shadow-lg flex flex-col rounded-lg">
                 {renderPanel(
-                  "Remaining Capping Amount",
+                  "Total Remaining Amount",
                   "1000$",
                   "Available Withdrawal",
                   "$30"
@@ -253,7 +247,7 @@ const EcommerceReferralPage = () => {
           <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-200 mb-4">
             Quick View
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6 ">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mb-6 ">
             <div className="shadow-xl ">
               {renderStatsCard(
                 "Direct Referral",
@@ -348,7 +342,9 @@ const renderStatsCard = (title, value, icon, iconColor) => {
   return (
     <div className="bg-white rounded-lg shadow-sm p-6 dark:bg-gray-800 text-gray-900 dark:text-slate-300">
       <div className="flex items-center justify-between mb-2">
-        <h3 className="text-sm font-medium text-gray-500">{title}</h3>
+        <h3 className="text-sm font-medium text-gray-500 dark:text-slate-200">
+          {title}
+        </h3>
         <Icon className={`${iconColor} h-6 w-6`} />
       </div>
       <p className="text-2xl font-semibold">{value}</p>
