@@ -121,7 +121,8 @@ const EcommerceReferralPage = () => {
               type="text"
               value={inviteLink}
               readOnly
-              className="flex-grow px-3 py-2 text-sm focus:outline-none dark:bg-gray-900"
+              className="flex-grow min-w-0 px-3 py-2 text-sm focus:outline-none dark:bg-gray-900"
+              style={{ minWidth: "0" }} // Ensures input can shrink properly
             />
             <button
               onClick={copyToClipboard}

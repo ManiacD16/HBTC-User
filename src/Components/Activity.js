@@ -8,6 +8,11 @@ const transactions = [
   { type: "staked", date: "29-Aug-2024 12:51:03", amount: 100 },
 ];
 
+const rewardData = [
+  { date: "15-Sep-2024", amount: 50 },
+  { date: "10-Sep-2024", amount: 25 },
+];
+
 export default function Activity() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("stake");
@@ -83,6 +88,40 @@ export default function Activity() {
             )}
           </div>
         );
+      case "rewards":
+        return (
+          <div className="p-4">
+            {rewardData.length > 0 ? (
+              rewardData.map((reward, index) => (
+                <div
+                  key={index}
+                  className="flex items-center justify-between bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm mb-2"
+                >
+                  <div className="flex items-center">
+                    <div className="bg-blue-400 rounded-full p-2 mr-4">
+                      <ArrowUpIcon className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-800 dark:text-gray-200">
+                        Reward Earned
+                      </p>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        {reward.date}
+                      </p>
+                    </div>
+                  </div>
+                  <p className="font-semibold text-blue-500">
+                    ${reward.amount}
+                  </p>
+                </div>
+              ))
+            ) : (
+              <p className="text-gray-600 dark:text-gray-400">
+                No Rewards Available...
+              </p>
+            )}
+          </div>
+        );
       default:
         return null;
     }
@@ -119,7 +158,7 @@ export default function Activity() {
 
         <div className="ml-6 mr-6 mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden mt-6">
           <div className="flex">
-            {["stake", "affiliateStaked", "income"].map((tab) => (
+            {["stake", "affiliateStaked", "income", "rewards"].map((tab) => (
               <button
                 key={tab}
                 className={`flex-1 py-3 px-4 text-center ${
@@ -133,11 +172,14 @@ export default function Activity() {
                   ? "Stake"
                   : tab === "affiliateStaked"
                   ? "Affiliate Staked"
-                  : "Income"}
+                  : tab === "income"
+                  ? "Income"
+                  : "Rewards"}{" "}
+                {/* Display "Rewards" correctly */}
               </button>
             ))}
           </div>
-          {renderTabContent()}
+          {renderTabContent()} {/* Pass activeTab to render content */}
         </div>
       </div>
     </div>
