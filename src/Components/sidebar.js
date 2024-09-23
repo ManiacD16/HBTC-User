@@ -133,7 +133,10 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
           <div>
             <div
               className="flex items-center p-3 hover:bg-gray-700 rounded-lg cursor-pointer"
-              onClick={toggleTeamDropdown}
+              onClick={() => {
+                toggleTeamDropdown(); // Call your dropdown toggle function
+                navigate("/team"); // Navigate to team.js
+              }}
             >
               <UsersIcon className="h-5 w-5 text-gray-500 dark:text-slate-300" />
               <span className="ml-3 text-gray-500 dark:text-slate-300 hover:text-gray-200 flex-grow">
@@ -169,7 +172,10 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
           <div>
             <div
               className="flex items-center p-3 hover:bg-gray-700 rounded-lg cursor-pointer"
-              onClick={toggleActivityDropdown}
+              onClick={() => {
+                toggleActivityDropdown(); // Call your dropdown toggle function
+                navigate("/activity"); // Navigate to team.js
+              }}
             >
               <ChartBarIcon className="h-5 w-5 text-gray-500 dark:text-slate-300" />
               <span className="ml-3 text-gray-500 dark:text-slate-300 hover:text-gray-200 flex-grow">

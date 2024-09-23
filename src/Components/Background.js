@@ -1,39 +1,62 @@
-// import React, { useEffect, useRef } from "react";
-// import Video from "./Images/HBTC.mp4";
-// import Photo from "./Images/HBTC.jpeg";
+// import React, { useEffect, useRef, useState } from "react";
+// import Back from "./Images/Back.mp4";
 
 // const Background = () => {
-//   const videoRef = useRef(null);
+//   const backVideoRef = useRef(null);
+//   const playbackIntervalRef = useRef(null);
+//   const [isPlaying, setIsPlaying] = useState(false);
 
 //   useEffect(() => {
-//     const playVideo = async () => {
-//       if (videoRef.current) {
+//     const handleVideo = async () => {
+//       if (backVideoRef.current) {
 //         try {
-//           await videoRef.current.play();
+//           await backVideoRef.current.play();
+//           setIsPlaying(true);
+//           backVideoRef.current.addEventListener("ended", playBackward);
 //         } catch (error) {
-//           console.error("Video playback failed:", error);
+//           console.error("Background video playback failed:", error);
 //         }
 //       }
 //     };
 
-//     playVideo();
+//     const playBackward = () => {
+//       backVideoRef.current.pause();
+//       backVideoRef.current.currentTime = backVideoRef.current.duration;
+
+//       playbackIntervalRef.current = setInterval(() => {
+//         if (backVideoRef.current.currentTime <= 0) {
+//           clearInterval(playbackIntervalRef.current);
+//           backVideoRef.current.currentTime = 0; // Reset to the start
+//           handleVideo(); // Restart the playback sequence
+//         } else {
+//           backVideoRef.current.currentTime -= 0.1; // Decrement for backward playback
+//         }
+//       }, 90);
+//     };
+
+//     // Cleanup to prevent memory leaks
+//     return () => {
+//       clearInterval(playbackIntervalRef.current);
+//       backVideoRef.current.removeEventListener("ended", playBackward);
+//     };
 //   }, []);
 
+//   const startVideo = () => {
+//     handleVideo();
+//   };
+
 //   return (
-//     <div className="relative min-h-screen w-full overflow-hidden bg-black">
+//     <div className="relative min-h-screen w-full overflow-hidden">
 //       <video
-//         ref={videoRef}
+//         ref={backVideoRef}
 //         className="absolute inset-0 w-full h-full object-cover"
-//         autoPlay
 //         muted
 //         playsInline
-//         loop
 //       >
-//         <source src={Video} type="video/mp4" />
+//         <source src={Back} type="video/mp4" />
 //         Your browser does not support the video tag.
 //       </video>
-//       <div className="absolute inset-0 bg-black opacity-40" />{" "}
-//       {/* Dark overlay */}
+//       <div className="absolute inset-0 bg-black opacity-40" />
 //       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen text-center">
 //         <h1 className="text-white text-4xl md:text-6xl font-bold drop-shadow-lg">
 //           Welcome to HBTC
@@ -41,14 +64,14 @@
 //         <p className="text-white text-lg md:text-xl mt-4 drop-shadow-md max-w-md">
 //           Your gateway to the world of blockchain technology and innovation.
 //         </p>
-//         <img
-//           src={Photo}
-//           alt="HBTC"
-//           className="mt-8 rounded-lg shadow-xl w-3/4 md:w-1/2 max-w-lg"
-//         />
-//         <button className="mt-6 px-6 py-3 bg-yellow-500 text-black rounded-lg font-semibold shadow-lg hover:bg-yellow-600 transition duration-300">
-//           Get Started
-//         </button>
+//         {!isPlaying && (
+//           <button
+//             onClick={startVideo}
+//             className="mt-6 px-6 py-3 bg-yellow-500 text-black rounded-lg font-semibold shadow-lg hover:bg-yellow-600 transition duration-300"
+//           >
+//             Play Video
+//           </button>
+//         )}
 //       </div>
 //     </div>
 //   );
