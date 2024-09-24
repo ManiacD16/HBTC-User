@@ -218,11 +218,7 @@ const EcommerceReferralPage = () => {
 
             {/* Render Reward Panel Cards */}
             <div className={`flex items-stretch`}>
-              <div
-                className={`w-full bg-white dark:bg-gray-800 shadow-lg flex flex-col rounded-lg ${
-                  isActive ? "" : "inactive"
-                }`}
-              >
+              <div className="w-full bg-white dark:bg-gray-800 shadow-lg flex flex-col rounded-lg">
                 {renderRewardPanel("5% Weekly Global Business", "$10000", "20")}
                 <div className="flex justify-end">
                   <button
