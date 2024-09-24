@@ -222,7 +222,7 @@ const EcommerceReferralPage = () => {
                 {renderRewardPanel("5% Weekly Global Business", "$10000", "20")}
                 <div className="flex justify-end">
                   <button
-                    className="bg-green-600 text-white py-1 px-4 rounded-2xl w-1/3 hover:bg-red-600 mr-2 mb-2 text-sm sm:text-base md:text-md"
+                    className="bg-green-600 text-white py-1 px-4 rounded-2xl w-1/3 hover:bg-green-400 mr-2 mb-2 text-sm sm:text-base md:text-md"
                     onClick={() => handleWithdraw()}
                   >
                     Eligible
@@ -248,7 +248,7 @@ const EcommerceReferralPage = () => {
                 )}
                 <div className="flex justify-end">
                   <button
-                    className="bg-red-600 text-white py-1 px-4 rounded-2xl w-1/3 hover:bg-red-600 mr-2 mb-2 text-sm sm:text-base md:text-md"
+                    className="bg-red-600 text-white py-1 px-4 rounded-2xl w-1/3 hover:bg-red-900 mr-2 mb-2 text-sm sm:text-base md:text-md"
                     onClick={() => handleWithdraw()}
                   >
                     Ineligible
