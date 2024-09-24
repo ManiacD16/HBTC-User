@@ -65,7 +65,7 @@ export default function TeamComponent() {
                 }`}
                 onClick={() => setActiveTab("referral")}
               >
-                My Referral
+                My Direct
               </button>
               <button
                 className={`flex-1 py-3 px-4 text-center ${
@@ -75,7 +75,7 @@ export default function TeamComponent() {
                 }`}
                 onClick={() => setActiveTab("downline")}
               >
-                My Downline
+                My Team
               </button>
             </div>
             <div className="p-4">
