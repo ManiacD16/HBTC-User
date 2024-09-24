@@ -108,7 +108,7 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
           </div>
           {/* Close button visible only on small screens */}
           <button
-            className="md:hidden text-gray-500"
+            className="lg:hidden text-gray-500"
             onClick={() => setIsSidebarOpen(false)}
           >
             <X className="w-6 h-6" /> {/* Close button */}

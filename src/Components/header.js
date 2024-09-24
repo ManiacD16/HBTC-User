@@ -69,7 +69,7 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen }) => {
   return (
     <header className="flex justify-between p-2 mt-2 ml-6 mr-6 dark:bg-gray-800 text-gray-900 dark:text-gray-200 shadow-md rounded-lg">
       {/* Hamburger Menu (visible on small screens) */}
-      <div className="flex items-center md:hidden">
+      <div className="flex items-center lg:hidden">
         <Menu
           className="h-6 w-6 text-gray-500 cursor-pointer"
           onClick={() => setIsSidebarOpen(true)}
